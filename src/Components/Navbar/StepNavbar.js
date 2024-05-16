@@ -25,22 +25,22 @@ const StepNavbar = () => {
             <Link className="nav-link" to="/about">ABOUT US</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/contact">GUIDELINES</Link>
+            <Link className="nav-link" to="./">GUIDELINES</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">TRAINING SECTORS</Link>
+            <Link className="nav-link" to="./">TRAINING SECTORS</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">NGOs</Link>
+            <Link className="nav-link" to="./">NGOs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">REGISTERATION</Link>
+            <Link className="nav-link" to="./">REGISTERATION</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">STATUS</Link>
+            <Link className="nav-link" to="./">STATUS</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">FAQ</Link>
+            <Link className="nav-link" to="./">FAQ</Link>
           </li>
         </ul>
       </div>

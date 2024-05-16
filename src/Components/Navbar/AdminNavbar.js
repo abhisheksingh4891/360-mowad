@@ -26,10 +26,10 @@ const AdminNavbar = () => {
             <Link className="nav-link" to="/about">ABOUT US</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/contact">NGOs</Link>
+            <Link className="nav-link" to="./">NGOs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">TRAINEES</Link>
+            <Link className="nav-link" to="./">TRAINEES</Link>
           </li>
         </ul>
       </div>

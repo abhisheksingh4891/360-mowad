@@ -22,22 +22,22 @@ const NgoNavbar = () => {
       <div className="collapse navbar-collapse" id="navbarNavngo">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/about">CRITERIA</Link>
+            <Link className="nav-link" to="./">CRITERIA</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/contact">ORGANIZATIONS</Link>
+            <Link className="nav-link" to="./">ORGANIZATIONS</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">FUNDING NORMS</Link>
+            <Link className="nav-link" to="./">FUNDING NORMS</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">REGISTER</Link>
+            <Link className="nav-link" to="./">REGISTER</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">STATUS</Link>
+            <Link className="nav-link" to="./">STATUS</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">FAQ</Link>
+            <Link className="nav-link" to="./">FAQ</Link>
           </li>
         </ul>
       </div>
