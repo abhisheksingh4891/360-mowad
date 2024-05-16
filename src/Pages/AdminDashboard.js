@@ -1,0 +1,47 @@
+import React, { useContext } from 'react';
+import c1 from "../Assets/c4.jpg";
+import Helpdesk from '../Components/Helpdesk';
+import MyProfile from '../Components/MyProfile';
+import Logo from '../Components/Logo';
+import AdminNavbar from '../Components/Navbar/AdminNavbar';
+import AdminLogin from './Login/AdminLogin';
+import { AppContext } from '../Context/AppContext';
+
+
+const AdminDashboard = () => {
+
+  const { adminLogin } = useContext(AppContext);
+
+  return (
+    <>
+      {
+        adminLogin ? (
+          <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway'}}>
+            {/* <Navbar /> */}
+            <Logo />  
+            <div>
+            <AdminNavbar />
+            </div>
+            <div className="row mx-1 mt-5">
+              <div className="col-md-4 pb-3">
+                <MyProfile />
+                <Helpdesk />
+              </div>
+              <div className="col-md-4 pb-3">
+                {/* <SchemeProvided /> */}
+              </div>
+              <div className="col-md-4">
+                {/* <LatestUpdates />
+                <SchemeDesc /> */}
+              </div>
+            </div>
+          </div>
+        ):(
+          <AdminLogin />
+        )
+      }
+    </>
+  )
+}
+
+export default AdminDashboard;
