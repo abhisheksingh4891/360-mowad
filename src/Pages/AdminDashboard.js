@@ -17,7 +17,6 @@ const AdminDashboard = () => {
       {
         adminLogin ? (
           <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway'}}>
-            {/* <Navbar /> */}
             <Logo />  
             <div>
             <AdminNavbar />
@@ -26,13 +25,6 @@ const AdminDashboard = () => {
               <div className="col-md-4 pb-3">
                 <MyProfile />
                 <Helpdesk />
-              </div>
-              <div className="col-md-4 pb-3">
-                {/* <SchemeProvided /> */}
-              </div>
-              <div className="col-md-4">
-                {/* <LatestUpdates />
-                <SchemeDesc /> */}
               </div>
             </div>
           </div>

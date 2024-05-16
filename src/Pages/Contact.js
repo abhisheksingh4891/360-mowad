@@ -18,7 +18,6 @@ const Contact = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // console.log('Form submitted:', formData);
         setFormData({ name: '', email: '', message: '' });
       };
       

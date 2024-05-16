@@ -5,7 +5,7 @@ import bg1 from '../../Assets/c4.jpg';
 import axios from 'axios';
 import { AppContext } from '../../Context/AppContext';
 
-const baseURL = "http://localhost:1000";
+const baseURL = "https://three60-mowad-backend.onrender.com";
 
 const NgoLogin = () => {
 
@@ -29,7 +29,6 @@ const NgoLogin = () => {
       navigate("/ngodashboard");
     })
     .catch(err => console.log(err));
-    // navigate("/modal");
   }
   
   

@@ -4,7 +4,7 @@ import Logo from '../../Components/Logo';
 import bg1 from '../../Assets/c4.jpg'
 import axios from "axios"
 
-const baseURL = "http://localhost:1000";
+const baseURL = "https://three60-mowad-backend.onrender.com";
 
 const StepRegister = () => {
 
@@ -23,12 +23,10 @@ const StepRegister = () => {
       name, phone, email, password, gender, confirmPassword
     })
     .then(() => {
-      // console.log(name, phone, email, password, gender, confirmPassword, );
       alert("registeration Successfull")
       navigate("/steplogin");
     })
     .catch(err => console.log(err));
-    // navigate("/modal");
   }
 
   

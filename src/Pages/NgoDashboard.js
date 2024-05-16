@@ -16,28 +16,26 @@ const NgoDashboard = () => {
     {
       ngoLogin ? (
         <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway'}}>
-      {/* <Navbar /> */}
-      <div className="text-center p-1 pb-2 text-white">
+          <div className="text-center p-1 pb-2 text-white">
             <h4>Non Governmental Organizations (NGOs)</h4>
-            {/* <h5>Government of India</h5> */}
+          </div>
+        <div>
+          <NgoNavbar />
         </div>
-      <div>
-      <NgoNavbar />
-      </div>
-      <div className="row mx-1 mt-5">
-        <div className="col-md-4 pb-3">
-          <MyProfile />
-          <Helpdesk />
+          <div className="row mx-1 mt-5">
+            <div className="col-md-4 pb-3">
+              <MyProfile />
+              <Helpdesk />
+            </div>
+            <div className="col-md-4 pb-3">
+              {/* <SchemeProvided /> */}
+            </div>
+            <div className="col-md-4">
+              {/* <LatestUpdates />
+              <SchemeDesc /> */}
+            </div>
+          </div>
         </div>
-        <div className="col-md-4 pb-3">
-          {/* <SchemeProvided /> */}
-        </div>
-        <div className="col-md-4">
-          {/* <LatestUpdates />
-          <SchemeDesc /> */}
-        </div>
-      </div>
-    </div>
       ):(
         <NgoLogin />
       )
