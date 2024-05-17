@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../Components/Logo'
-import c1 from '../Assets/bg5.jpg'
+import c1 from '../Assets/c2.jpg'
 import Navbar from '../Components/Navbar/Navbar'
 
 const About = () => {

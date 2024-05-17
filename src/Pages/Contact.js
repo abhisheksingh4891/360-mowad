@@ -1,26 +1,58 @@
 import React, {useState} from 'react'
 import Logo from '../Components/Logo'
-import c1 from '../Assets/bg5.jpg'
-import { Link } from 'react-router-dom'
+import c1 from '../Assets/c2.jpg'
 import Navbar from '../Components/Navbar/Navbar'
+import { Modal, Button } from 'react-bootstrap';
+import axios from 'axios'
+
+const baseURL = "https://three60-mowad-backend.onrender.com";
+// const baseURL = "http://localhost:1000";
 
 const Contact = () => {
 
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-      });
-    
-    const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
-      };
+    const [name, setName] = useState('');
+    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setFormData({ name: '', email: '', message: '' });
-      };
-      
+    const [showFetchingModal, setShowFetchingModal] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
+
+    const handleCloseFetching = () => setShowFetchingModal(false);
+    const handleShowFetching = () => setShowFetchingModal(true);
+
+    const handleShowSuccess = () => {
+        setShowSuccessModal(true);
+        setTimeout(() => {
+        setShowSuccessModal(false);
+        //   navigate('/ngologin');
+        }, 1000);
+
+    }
+
+    const handleCloseError = () => setShowErrorModal(false);
+    const handleShowError = () => setShowErrorModal(true);
+
+    const handleSubmit = (e)=> {
+        e.preventDefault();
+        handleShowFetching();
+        axios.post(`${baseURL}/feedback`,{
+        name, message, email
+        })
+        .then(() => {
+            handleCloseFetching();
+            handleShowSuccess();
+            setMessage("");
+            setName("")
+            setEmail("")
+        })
+        .catch(err => {
+            console.log(err)
+            handleCloseFetching();
+            handleShowError();
+    });
+    }
+        
   return (
 
     <div className="container-fluid p-4" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway', height:'100vh'}}>
@@ -36,24 +68,56 @@ const Contact = () => {
                             <form onSubmit={handleSubmit} className='gap-4'>
                                 <div>
                                     <label htmlFor="name">Name:</label>
-                                    <input className='form-control mb-3' type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+                                    <input className='form-control mb-3' type="text" id="name" name="name" value={name} onChange={(e)=>{setName(e.target.value)}} required />
                                 </div>
                                 <div>
                                     <label htmlFor="email">Email:</label>
-                                    <input className='form-control mb-3' type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                                    <input className='form-control mb-3' type="email" id="email" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} required />
                                 </div>
                                 <div>
                                     <label htmlFor="message">Message:</label>
-                                    <textarea className='form-control mb-3' rows="5" id="message" name="message" value={formData.message} onChange={handleChange} required />
+                                    <textarea className='form-control mb-3' rows="5" id="message" value={message} name="message" onChange={(e)=>{setMessage(e.target.value)}} required />
                                 </div>
                                 
-                                <Link to='/'><button className='btn btn-danger'>Send Message</button></Link> 
+                                <button className='btn btn-danger'>Send Message</button>
                             </form>
                     </div>
                     </div>
                 </div>
             </div>
         </div>  
+        <Modal show={showFetchingModal} onHide={handleCloseFetching}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sending User Feedback</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please wait while we send your feedback...</Modal.Body>
+      </Modal>
+
+      
+      <Modal show={showSuccessModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Feedback Submitted</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have successfully submitted feedback!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      
+      <Modal show={showErrorModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Feedback Submission Failed</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Check Your Connection or User already exists!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
