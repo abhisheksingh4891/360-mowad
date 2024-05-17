@@ -110,6 +110,39 @@ const AdminRegister = () => {
         </div>
       </div>
     </div>
+    {/* Fetching Modal */}
+    <Modal show={showFetchingModal} onHide={handleCloseFetching}>
+        <Modal.Header closeButton>
+          <Modal.Title>Fetching User Data</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please wait while we fetch your profile data...</Modal.Body>
+      </Modal>
+
+      {/* Success Modal */}
+      <Modal show={showSuccessModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have successfully logged in!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Error Modal */}
+      <Modal show={showErrorModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Failed</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Invalid credentials. Please try again.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
   </div>
 
   )

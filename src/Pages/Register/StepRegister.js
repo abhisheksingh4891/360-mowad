@@ -2,10 +2,11 @@ import {React, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../Components/Logo';
 import bg1 from '../../Assets/c4.jpg'
-import axios from "axios"
+import axios from "axios";
+import { Modal, Button } from 'react-bootstrap';
 
-// const baseURL = "https://three60-mowad-backend.onrender.com";
-const baseURL = "http://localhost:1000";
+const baseURL = "https://three60-mowad-backend.onrender.com";
+// const baseURL = "http://localhost:1000";
 
 const StepRegister = () => {
 
@@ -18,16 +19,40 @@ const StepRegister = () => {
 
   const navigate = useNavigate();
 
+  const [showFetchingModal, setShowFetchingModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+
+  const handleCloseFetching = () => setShowFetchingModal(false);
+  const handleShowFetching = () => setShowFetchingModal(true);
+
+  const handleShowSuccess = () => {
+    setShowSuccessModal(true);
+    setTimeout(() => {
+      setShowSuccessModal(false);
+      navigate('/steplogin');
+    }, 1000);
+
+  }
+
+  const handleCloseError = () => setShowErrorModal(false);
+  const handleShowError = () => setShowErrorModal(true);
+
   const Submit = (e)=> {
     e.preventDefault();
+    handleShowFetching();
     axios.post(`${baseURL}/stepregister`,{
       name, phone, email, password, gender, confirmPassword
     })
     .then(() => {
-      alert("registeration Successfull")
-      navigate("/steplogin");
+      handleCloseFetching();
+      handleShowSuccess();
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+      handleCloseFetching();
+      handleShowError();
+  });
   }
 
   
@@ -102,6 +127,39 @@ const StepRegister = () => {
         </div>
       </div>
     </div>
+    
+    <Modal show={showFetchingModal} onHide={handleCloseFetching}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sending User Data</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please wait while we send your profile data...</Modal.Body>
+      </Modal>
+
+      
+      <Modal show={showSuccessModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Registeration Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have successfully Registered!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      
+      <Modal show={showErrorModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Failed</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Check Your Connection. Please try again.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
   </div>
 
   )

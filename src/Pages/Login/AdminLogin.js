@@ -72,7 +72,7 @@ const AdminLogin = () => {
                   <div className="pt-2 mb-4">
                     <button className="btn btn-success btn-block" type="submit">Log in</button>
                   </div>
-                  <p className="mb-2 text-black fw-bold">Don't have an account? <Link to="./" className="" style={{ color: "blue" }}>Register here</Link></p>
+                  {/* <p className="mb-2 text-black fw-bold">Don't have an account? <Link to="./" className="" style={{ color: "blue" }}>Register here</Link></p> */}
                   <Link className="text-danger fw-bold" to="/">Return to Home</Link>
                 </form>
               </div>
