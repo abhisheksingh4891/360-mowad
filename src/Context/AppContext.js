@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 // const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
@@ -10,6 +10,27 @@ const AppContextProvider = (props) => {
     const [stepLogin, setStepLogin] = useState(false);
     const [ngoLogin, setNgoLogin] = useState(false);
     const [adminLogin, setAdminLogin] = useState(false);
+
+    useEffect(() => {
+      const isLoggedIn = localStorage.getItem("StepToken");
+      if (isLoggedIn) {
+        setStepLogin(true);
+      }
+    }, [setStepLogin]);
+
+    useEffect(() => {
+      const isLoggedIn = localStorage.getItem("NgoToken");
+      if (isLoggedIn) {
+        setNgoLogin(true);
+      }
+    }, [setNgoLogin]);
+
+    useEffect(() => {
+      const isLoggedIn = localStorage.getItem("AdminToken");
+      if (isLoggedIn) {
+        setAdminLogin(true);
+      }
+    }, [setAdminLogin]);
 
 
   const contextValue = {

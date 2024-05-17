@@ -10,8 +10,8 @@ const NgoNavbar = () => {
 
   const handleLogout = () => {
     setTimeout(() => {
-      localStorage.removeItem("NgoLoggedIn");
-      navigate('/');
+      localStorage.removeItem("NgoToken");
+      navigate('/ngologin');
     }, 800);
     setNgoLogin(false);
   };

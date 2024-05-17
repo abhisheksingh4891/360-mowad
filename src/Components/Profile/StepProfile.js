@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom'
+
+const baseURL = "https://three60-mowad-backend.onrender.com";
+// const baseURL = "http://localhost:1000";
 
 const MyProfile = () => {
 
@@ -10,7 +12,7 @@ const MyProfile = () => {
     const fetchProfile = async () => {
       const token = localStorage.getItem('StepToken');
       try {
-        const response = await axios.get('http://localhost:1000/profile', {
+        const response = await axios.get(`${baseURL}/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

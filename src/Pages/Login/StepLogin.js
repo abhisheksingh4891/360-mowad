@@ -4,34 +4,51 @@ import Logo from '../../Components/Logo';
 import bg1 from '../../Assets/c4.jpg';
 import axios from 'axios';
 import { AppContext } from '../../Context/AppContext';
+import { Modal, Button } from 'react-bootstrap';
 
 const baseURL = "https://three60-mowad-backend.onrender.com";
+// const baseURL = "http://localhost:1000";
 
 const StepLogin = () => {
 
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
   const { setStepLogin } = useContext(AppContext);
-
-
   const navigate = useNavigate();
 
-  const Submit = (e)=> {
-    e.preventDefault();
-    axios.post(`${baseURL}/stepuserlogin`,
-    {
-      email, password
-    })
-    .then(() => {
-      localStorage.setItem("StepLoggedIn", true);
-      setStepLogin(true)
-      alert("Login Successfull")
-      navigate("/stepdashboard");
-    })
-    .catch(err => console.log(err));
-    
+  const [showFetchingModal, setShowFetchingModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+
+  const handleCloseFetching = () => setShowFetchingModal(false);
+  const handleShowFetching = () => setShowFetchingModal(true);
+
+  
+  const handleShowSuccess = () => {
+    setShowSuccessModal(true);
+    setTimeout(() => {
+      setShowSuccessModal(false);
+      navigate('/stepdashboard');
+    }, 1000);
   }
+  const handleCloseError = () => setShowErrorModal(false);
+  const handleShowError = () => setShowErrorModal(true);
+
+  const Submit = async (e)=> {
+    e.preventDefault();
+    handleShowFetching();
+    try {
+      const response = await axios.post(`${baseURL}/stepuserlogin`, { email, password });
+      localStorage.setItem('StepToken', response.data.accessToken);
+      setStepLogin(true);
+      handleCloseFetching();
+      handleShowSuccess();
+    } catch (err) {
+      console.error(err);
+      handleCloseFetching();
+      handleShowError();
+    }
+  };
   
   
 
@@ -76,6 +93,39 @@ const StepLogin = () => {
         </div>
       </div>
     </div>
+    {/* Fetching Modal */}
+    <Modal show={showFetchingModal} onHide={handleCloseFetching}>
+        <Modal.Header closeButton>
+          <Modal.Title>Fetching User Data</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please wait while we fetch your profile data...</Modal.Body>
+      </Modal>
+
+      {/* Success Modal */}
+      <Modal show={showSuccessModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have successfully logged in!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Error Modal */}
+      <Modal show={showErrorModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Failed</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Invalid credentials. Please try again.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
   </div>
 
   )

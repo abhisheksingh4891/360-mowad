@@ -10,8 +10,8 @@ const AdminNavbar = () => {
 
   const handleLogout = () => {
     setTimeout(() => {
-      localStorage.removeItem("AdminLoggedIn");
-      navigate('/');
+      localStorage.removeItem("AdminToken");
+      navigate('/adminlogin');
     }, 800);
     setAdminLogin(false);
   };

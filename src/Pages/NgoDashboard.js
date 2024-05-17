@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import c1 from "../Assets/c4.jpg";
 import Helpdesk from '../Components/Helpdesk';
-import MyProfile from '../Components/MyProfile';
+import MyProfile from '../Components/Profile/NgoProfile';
 import NgoNavbar from '../Components/Navbar/NgoNavbar';
 import { AppContext } from '../Context/AppContext';
 import NgoLogin from './Login/NgoLogin';
@@ -15,7 +15,7 @@ const NgoDashboard = () => {
     <>
     {
       ngoLogin ? (
-        <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway'}}>
+        <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway', height:'100vh'}}>
           <div className="text-center p-1 pb-2 text-white">
             <h4>Non Governmental Organizations (NGOs)</h4>
           </div>

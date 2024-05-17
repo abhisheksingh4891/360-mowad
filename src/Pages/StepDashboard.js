@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import c1 from "../Assets/c4.jpg";
 import Helpdesk from '../Components/Helpdesk';
-import MyProfile from '../Components/MyProfile';
+import MyProfile from '../Components/Profile/StepProfile';
 import StepNavbar from '../Components/Navbar/StepNavbar';
 import { AppContext } from '../Context/AppContext';
 import StepLogin from './Login/StepLogin';
@@ -14,7 +14,7 @@ const StepDashboard = () => {
     <>
     {
       stepLogin ? (
-        <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway'}}>
+        <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway', height:'100vh'}}>
       <div className="text-center p-1 pb-2 text-white">
             <h4>Support to Training and Employment Programme for Women (STEP) </h4>
         </div>

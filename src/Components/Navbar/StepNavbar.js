@@ -10,8 +10,8 @@ const StepNavbar = () => {
 
   const handleLogout = () => {
     setTimeout(() => {
-      localStorage.removeItem("StepLoggedIn");
-      navigate('/');
+      localStorage.removeItem("StepToken");
+      navigate('/steplogin');
     }, 800);
     setStepLogin(false);
   };
