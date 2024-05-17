@@ -36,16 +36,16 @@ const AdminProfile = () => {
               <h5 className="card-title mb-4"><b>My Profile</b></h5>
               <form>
                 <div className="mb-4">
-                    <label>Name</label>
-                    <input type="text" className="form-control" disabled >{profile.name}</input>
+                  <label>Name</label>
+                  <input type="text" className="form-control" value={profile.name} disabled />
                 </div>
                 <div className="mb-3">
-                    <label>Email</label>
-                    <input type="password" className="form-control" disabled  >{profile.email} </input>
+                  <label>Email</label>
+                  <input type="text" className="form-control" value={profile.email} disabled />
                 </div>
                 <div className="mb-3">
-                    <label>Phone Number</label>
-                    <input type="password" className="form-control" disabled  >{profile.phone} </input>
+                  <label>Phone Number</label>
+                  <input type="text" className="form-control" value={profile.phone} disabled />
                 </div>
                 {/* <Link to="/"><button type="submit" className="btn btn-success mb-3">Logout</button></Link> */}
               </form>
