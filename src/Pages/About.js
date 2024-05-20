@@ -22,8 +22,8 @@ const About = () => {
                             <div>
                                 <h5 className=''><b>Our Mission :</b></h5>
                                 <p>
-                                    Our mission is to **[insert your company's mission statement here]**. 
-                                    We are passionate about **[what you're passionate about]**.
+                                    Our mission is to create beautiful full stack projects for our client. 
+                                    We are passionate about delivering good quality products.
                                 </p>
                             </div>
                             <div>
