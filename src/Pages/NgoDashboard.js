@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import c1 from "../Assets/c2.jpg";
 import Helpdesk from '../Components/Helpdesk';
-import MyProfile from '../Components/Profile/NgoProfile';
 import NgoNavbar from '../Components/Navbar/NgoNavbar';
 import { AppContext } from '../Context/AppContext';
 import NgoLogin from './Login/NgoLogin';
+import NgoProfile from '../Components/Profile/NgoProfile';
 
 
 const NgoDashboard = () => {
@@ -24,7 +24,7 @@ const NgoDashboard = () => {
         </div>
           <div className="row mx-1 mt-5">
             <div className="col-md-4 pb-3">
-              <MyProfile />
+              <NgoProfile />
               <Helpdesk />
             </div>
             <div className="col-md-4 pb-3">

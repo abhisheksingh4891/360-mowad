@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import c1 from "../Assets/c2.jpg";
 import Helpdesk from '../Components/Helpdesk';
-import MyProfile from '../Components/Profile/StepProfile';
 import StepNavbar from '../Components/Navbar/StepNavbar';
 import { AppContext } from '../Context/AppContext';
 import StepLogin from './Login/StepLogin';
+import StepProfile from '../Components/Profile/StepProfile';
 
 const StepDashboard = () => {
 
@@ -23,7 +23,7 @@ const StepDashboard = () => {
       </div>
         <div className="row mx-1 mt-5">
           <div className="col-md-4 pb-3">
-            <MyProfile />
+            <StepProfile />
             <Helpdesk />
           </div>
         </div>

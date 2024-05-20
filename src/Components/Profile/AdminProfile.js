@@ -6,7 +6,7 @@ const baseURL = "https://three60-mowad-backend.onrender.com";
 
 const AdminProfile = () => {
 
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState('');
 
   useEffect(() => {
     const fetchProfile = async () => {

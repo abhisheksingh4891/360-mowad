@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 const baseURL = "https://three60-mowad-backend.onrender.com";
 // const baseURL = "http://localhost:1000";
 
-const MyProfile = () => {
+const StepProfile = () => {
 
   const [profile, setProfile] = useState(null);
 
@@ -55,4 +55,4 @@ const MyProfile = () => {
   )
 }
 
-export default MyProfile
+export default StepProfile;
