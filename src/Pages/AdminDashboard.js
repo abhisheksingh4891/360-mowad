@@ -6,6 +6,7 @@ import Logo from '../Components/Logo';
 import AdminNavbar from '../Components/Navbar/AdminNavbar';
 import AdminLogin from './Login/AdminLogin';
 import { AppContext } from '../Context/AppContext';
+import AdminProfile from '../Components/Profile/AdminProfile';
 
 
 const AdminDashboard = () => {
@@ -23,7 +24,7 @@ const AdminDashboard = () => {
             </div>
             <div className="row mx-1 mt-5">
               <div className="col-md-4 pb-3">
-                <MyProfile />
+                <AdminProfile />
                 <Helpdesk />
               </div>
             </div>
