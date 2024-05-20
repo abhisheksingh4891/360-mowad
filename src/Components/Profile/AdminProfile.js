@@ -26,7 +26,7 @@ const AdminProfile = () => {
     fetchProfile();
   }, []);
 
-  if (!profile) return <div>Loading...</div>;
+  // if (!profile) return <div>Loading...</div>;
 
       
   return (
