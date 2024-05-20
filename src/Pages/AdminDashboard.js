@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import c1 from "../Assets/c2.jpg";
 import Helpdesk from '../Components/Helpdesk';
-import MyProfile from '../Components/MyProfile';
 import Logo from '../Components/Logo';
 import AdminNavbar from '../Components/Navbar/AdminNavbar';
 import AdminLogin from './Login/AdminLogin';
