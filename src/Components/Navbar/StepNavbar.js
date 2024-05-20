@@ -19,11 +19,12 @@ const StepNavbar = () => {
   return (
     <div><nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1 mx-3">
     <div className="container-fluid" style={{ fontFamily: 'Raleway' }}> 
+      <Link className="navbar-brand fs-6" to="/about">ABOUT US</Link>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavv" aria-controls="navbarNavv" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
       <div className="collapse navbar-collapse" id="navbarNavv">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">ABOUT US</Link>
-          </li>
+        <ul className="navbar-nav ms-auto">
           <li className="nav-item">
             <Link className="nav-link" to="./">GUIDELINES</Link>
           </li>
@@ -42,12 +43,11 @@ const StepNavbar = () => {
           <li className="nav-item">
             <Link className="nav-link" to="./">FAQ</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link " onClick={handleLogout}>LOGOUT</Link>
+          </li>
         </ul>
       </div>
-      <Link className="navbar-brand fs-6" onClick={handleLogout}>LOGOUT</Link>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavv" aria-controls="navbarNavv" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
     </div>
   </nav></div>
   )
