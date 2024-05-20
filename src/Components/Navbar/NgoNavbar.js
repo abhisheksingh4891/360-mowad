@@ -19,7 +19,7 @@ const NgoNavbar = () => {
   return (
     <div><nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1 mx-3">
     <div className="container-fluid" style={{ fontFamily: 'Raleway' }}>
-      <Link className="navbar-brand fs-6"  to="./">REGISTER</Link>
+      <Link className="navbar-brand fs-6"  to="/">HOME</Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavngo" aria-controls="navbarNavngo" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -33,6 +33,9 @@ const NgoNavbar = () => {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="./">FUNDING NORMS</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="./">REGISTER</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="./">STATUS</Link>
