@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import Homepage from './Pages/Homepage';
-import Modal from './Pages/Modal';
 import Contact from './Pages/Contact';
 import About from './Pages/About';
 import StepLogin from './Pages/Login/StepLogin';
@@ -23,7 +22,6 @@ function App() {
         <Route path='/steplogin' element={<StepLogin />} />
         <Route path='/ngologin' element={<NgoLogin />} />
         <Route path='/adminlogin' element={<AdminLogin />} />
-        <Route path='/modal' element={<Modal />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
         <Route path='/ngodashboard' element={<NgoDashboard />} />
