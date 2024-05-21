@@ -53,11 +53,8 @@ const Policy = () => {
                       data-bs-parent="#policyAccordion"
                     >
                       <div className="accordion-body">
-                        <strong>This is the first policy item.</strong> It is
-                        shown by default, until the collapse plugin adds the
-                        appropriate classes that we use to style each element.
-                        These classes control the overall appearance, as well as
-                        the showing and hiding via CSS transitions.
+                        <strong>This is the first policy.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Nunc quis orci odio. Sed posuere consectetur est at lobortis.
                       </div>
                     </div>
                   </div>
@@ -81,11 +78,8 @@ const Policy = () => {
                       data-bs-parent="#policyAccordion"
                     >
                       <div className="accordion-body">
-                        <strong>This is the second policy item.</strong> It is
-                        hidden by default, until the collapse plugin adds the
-                        appropriate classes that we use to style each element.
-                        These classes control the overall appearance, as well as
-                        the showing and hiding via CSS transitions.
+                        <strong>This is the second policy.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Nunc quis orci odio. Sed posuere consectetur est at lobortis.
                       </div>
                     </div>
                   </div>
@@ -109,11 +103,8 @@ const Policy = () => {
                       data-bs-parent="#policyAccordion"
                     >
                       <div className="accordion-body">
-                        <strong>This is the third policy item.</strong> It is
-                        hidden by default, until the collapse plugin adds the
-                        appropriate classes that we use to style each element.
-                        These classes control the overall appearance, as well as
-                        the showing and hiding via CSS transitions.
+                        <strong>This is the third policy.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Nunc quis orci odio. Sed posuere consectetur est at lobortis.
                       </div>
                     </div>
                   </div>

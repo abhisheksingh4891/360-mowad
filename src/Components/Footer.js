@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center py-3">
-          &copy; {new Date().getFullYear()} Your Company. All Rights Reserved.
+          &copy; {new Date().getFullYear()} Abhishek Singh. All Rights Reserved.
         </div>
       </div>
     </footer>
