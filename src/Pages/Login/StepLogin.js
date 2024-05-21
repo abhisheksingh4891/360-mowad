@@ -93,7 +93,7 @@ const StepLogin = () => {
         </div>
       </div>
     </div>
-    {/* Fetching Modal */}
+   
     <Modal show={showFetchingModal} onHide={handleCloseFetching}>
         <Modal.Header closeButton>
           <Modal.Title>Fetching User Data</Modal.Title>
@@ -101,7 +101,7 @@ const StepLogin = () => {
         <Modal.Body>Please wait while we fetch your profile data...</Modal.Body>
       </Modal>
 
-      {/* Success Modal */}
+      
       <Modal show={showSuccessModal} onHide={handleCloseError}>
         <Modal.Header closeButton>
           <Modal.Title>Login Successful</Modal.Title>
@@ -114,7 +114,7 @@ const StepLogin = () => {
         </Modal.Footer>
       </Modal>
 
-      {/* Error Modal */}
+      
       <Modal show={showErrorModal} onHide={handleCloseError}>
         <Modal.Header closeButton>
           <Modal.Title>Login Failed</Modal.Title>
