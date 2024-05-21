@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import c1 from "../Assets/c2.jpg";
+import c1 from "../Assets/bg5.jpg";
 import Helpdesk from '../Components/Helpdesk';
 import Logo from '../Components/Logo';
 import AdminNavbar from '../Components/Navbar/AdminNavbar';
