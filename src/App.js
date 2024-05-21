@@ -12,6 +12,7 @@ import StepDashboard from './Pages/StepDashboard';
 import AppContextProvider from './Context/AppContext';
 import StepRegister from './Pages/Register/StepRegister';
 import NgoRegister from './Pages/Register/NgoRegister';
+import Policy from './Pages/Policy';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/stepdashboard' element={<StepDashboard />} />
         <Route path='/stepregister' element={<StepRegister />} />
         <Route path='/ngoregister' element={<NgoRegister />} />
+        <Route path='/policy' element={<Policy />} />
       </Routes>
     </AppContextProvider>
     </div>

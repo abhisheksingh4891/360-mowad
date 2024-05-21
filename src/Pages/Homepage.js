@@ -8,7 +8,7 @@ import Eligibility from '../Components/Eligibility';
 const Homepage = () => {
 
   return (
-    <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(8`0%)', fontFamily:'Raleway'}}>
+    <div className="container-fluid pt-3" style={{ backgroundImage: `url(${c1})` , backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)', fontFamily:'Raleway'}}>
       <Logo />
       <Navbar />
       <div className="row mx-1 mt-5">

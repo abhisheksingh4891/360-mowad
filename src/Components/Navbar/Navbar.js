@@ -18,20 +18,20 @@ const Navbar = () => {
                   <Link className="nav-link" to="/about">ABOUT US</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="./">LEGISLATIONS & POLICY</Link>
+                  <Link className="nav-link" to="/policy">LEGISLATIONS & POLICY</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/steplogin">STEP</Link>
+                  <Link className="nav-link" to="/stepdashboard">STEP</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/ngologin">NGOs</Link>
+                  <Link className="nav-link" to="/ngodashboard">NGOs</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/adminlogin">ADMIN</Link>
+                  <Link className="nav-link" to="/admindashboard">ADMIN</Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="./">FAQ</Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/contact">CONTACT US</Link>
                 </li>
