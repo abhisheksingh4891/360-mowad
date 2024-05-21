@@ -22,7 +22,7 @@ const NgoDashboard = () => {
         <div>
           <NgoNavbar />
         </div>
-          <div className="row mx-1 mt-5">
+          <div className="row mx-1 mt-5 ">
             <div className="col-md-4 pb-3">
               <NgoProfile />
               <Helpdesk />

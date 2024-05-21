@@ -4,6 +4,7 @@ import Logo from '../Components/Logo';
 import c1 from "../Assets/c2.jpg";
 import Description from '../Components/Description';
 import Eligibility from '../Components/Eligibility';
+import Footer from '../Components/Footer';
 
 const Homepage = () => {
 
@@ -13,7 +14,8 @@ const Homepage = () => {
       <Navbar />
       <div className="row mx-1 mt-5">
           <Description />
-          <Eligibility />     
+          <Eligibility /> 
+          <Footer />    
       </div>
     </div>
   );
