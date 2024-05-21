@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-// const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
-
 export const AppContext = createContext({});
 
 const AppContextProvider = (props) => {
