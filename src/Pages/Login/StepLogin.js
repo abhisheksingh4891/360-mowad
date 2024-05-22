@@ -38,7 +38,7 @@ const StepLogin = () => {
     e.preventDefault();
     handleShowFetching();
     try {
-      const response = await axios.post(`${baseURL}/stepuserlogin`, { email, password });
+      const response = await axios.post(`${baseURL}/api/step/user/login`, { email, password });
       localStorage.setItem('StepToken', response.data.accessToken);
       setStepLogin(true);
       handleCloseFetching();

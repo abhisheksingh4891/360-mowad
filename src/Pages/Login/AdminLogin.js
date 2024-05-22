@@ -37,7 +37,7 @@ const AdminLogin = () => {
     e.preventDefault();
     handleShowFetching();
     try {
-      const response = await axios.post(`${baseURL}/adminlogin`, { email, password });
+      const response = await axios.post(`${baseURL}/api/admin/user/login`, { email, password });
       localStorage.setItem('AdminToken', response.data.accessToken);
       setAdminLogin(true);
       handleCloseFetching();

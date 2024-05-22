@@ -36,7 +36,7 @@ const Contact = () => {
     const handleSubmit = (e)=> {
         e.preventDefault();
         handleShowFetching();
-        axios.post(`${baseURL}/feedback`,{
+        axios.post(`${baseURL}/api/feedback`,{
         name, message, email
         })
         .then(() => {

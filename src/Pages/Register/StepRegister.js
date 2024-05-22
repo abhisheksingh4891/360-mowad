@@ -41,7 +41,7 @@ const StepRegister = () => {
   const Submit = (e)=> {
     e.preventDefault();
     handleShowFetching();
-    axios.post(`${baseURL}/stepregister`,{
+    axios.post(`${baseURL}/api/step/user/register`,{
       name, phone, email, password, gender, confirmPassword
     })
     .then(() => {

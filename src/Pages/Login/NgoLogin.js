@@ -37,7 +37,7 @@ const NgoLogin = () => {
     e.preventDefault();
     handleShowFetching();
     try {
-      const response = await axios.post(`${baseURL}/ngouserlogin`, { email, password });
+      const response = await axios.post(`${baseURL}/api/ngo/user/login`, { email, password });
       localStorage.setItem('NgoToken', response.data.accessToken);
       setNgoLogin(true);
       handleCloseFetching();
