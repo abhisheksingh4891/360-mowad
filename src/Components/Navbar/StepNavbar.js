@@ -11,7 +11,7 @@ const StepNavbar = () => {
   const handleLogout = () => {
     setTimeout(() => {
       localStorage.removeItem("StepToken");
-      navigate('/');
+      navigate('/steplogin');
     }, 800);
     setStepLogin(false);
   };

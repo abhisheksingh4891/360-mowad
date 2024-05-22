@@ -8,7 +8,7 @@ const Helpdesk = () => {
             <div className="card-body">
               <h5 className="card-title">Helpdesk</h5>
               <p className="card-text">Get assistance from our support team.</p>
-              <Link to="#" className="btn btn-danger">Contact Us</Link>
+              <Link to="/contact" className="btn btn-danger">Contact Us</Link>
             </div>
           </div>
     </div>

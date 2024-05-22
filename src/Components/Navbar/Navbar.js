@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../Context/AppContext';
 
 
 const Navbar = () => {
+  const { stepLogin, ngoLogin, adminLogin } = useContext(AppContext);
 
   return (
     <>
@@ -20,15 +22,39 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/policy">LEGISLATIONS & POLICY</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/steplogin">STEP</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/ngologin">NGOs</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/adminlogin">ADMIN</Link>
-                </li>
+                {
+                  stepLogin ? (
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/stepdashboard">STEP</Link>
+                    </li>
+                  ):(
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/steplogin">STEP</Link>
+                    </li>
+                  )
+                }
+                {
+                  ngoLogin ? (
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/ngodashboard">NGOs</Link>
+                    </li>
+                  ):(
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/ngologin">NGOs</Link>
+                    </li>
+                  )
+                }
+                {
+                  adminLogin ? (
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/admindashboard">ADMIN</Link>
+                    </li>
+                  ):(
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/adminlogin">ADMIN</Link>
+                    </li>
+                  )
+                }
                 {/* <li className="nav-item">
                   <Link className="nav-link" to="./">FAQ</Link>
                 </li> */}
