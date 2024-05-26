@@ -6,27 +6,38 @@ const baseURL = "https://three60-mowad-backend.onrender.com";
 
 const NgoProfile = () => {
 
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState('');
+
+  const fetchProfile = async () => {
+    const token = localStorage.getItem('NgoToken');
+    if (!token){
+        console.log('No token found');
+        return;
+    }
+    try {
+      const response = await axios.get(`${baseURL}/api/ngo/user/profile`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setProfile(response.data);
+    } catch (error) {
+      console.error('Error fetching profile', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem('NgoToken');
-      try {
-        const response = await axios.get(`${baseURL}/profile`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setProfile(response.data);
-      } catch (error) {
-        console.error('Error fetching profile', error);
-      }
-    };
-
     fetchProfile();
   }, []);
 
-  if (!profile) return <div>Loading...</div>;
+  if (!profile) return (
+    <>
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+      <h5>Loading Profile...</h5>
+    </>
+  );
 
       
   return (
@@ -36,16 +47,16 @@ const NgoProfile = () => {
               <h5 className="card-title mb-4"><b>My Profile</b></h5>
               <form>
                 <div className="mb-4">
-                    <label>Name</label>
-                    <input type="text" className="form-control" disabled >{profile.name}</input>
+                  <label>Name</label>
+                  <input type="text" className="form-control" value={profile.name} disabled />
                 </div>
                 <div className="mb-3">
-                    <label>Email</label>
-                    <input type="password" className="form-control" disabled  >{profile.email} </input>
+                  <label>Email</label>
+                  <input type="text" className="form-control" value={profile.email} disabled />
                 </div>
                 <div className="mb-3">
-                    <label>Phone Number</label>
-                    <input type="password" className="form-control" disabled  >{profile.phone} </input>
+                  <label>Phone Number</label>
+                  <input type="text" className="form-control" value={profile.phone} disabled />
                 </div>
                 {/* <Link to="/"><button type="submit" className="btn btn-success mb-3">Logout</button></Link> */}
               </form>

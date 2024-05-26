@@ -22,6 +22,7 @@ const StepRegister = () => {
   const [showFetchingModal, setShowFetchingModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showPErrorModal, setShowPErrorModal] = useState(false);
 
   const handleCloseFetching = () => setShowFetchingModal(false);
   const handleShowFetching = () => setShowFetchingModal(true);
@@ -38,8 +39,23 @@ const StepRegister = () => {
   const handleCloseError = () => setShowErrorModal(false);
   const handleShowError = () => setShowErrorModal(true);
 
+  const handleShowPError = () => setShowPErrorModal(true);
+  const handleClosePError = () => setShowPErrorModal(false);
+
+  const validatePasswords = () => {
+    if (password !== confirmPassword) {
+      handleShowPError();
+      return false;
+    }
+    return true;
+  };
+
   const Submit = (e)=> {
     e.preventDefault();
+    if (!validatePasswords()) {
+      return;
+    }
+
     handleShowFetching();
     axios.post(`${baseURL}/api/ngo/user/register`,{
       name, phone, email, password, gender, confirmPassword
@@ -135,7 +151,18 @@ const StepRegister = () => {
         <Modal.Body>Please wait while we send your profile data...</Modal.Body>
       </Modal>
 
-      
+      <Modal show={showPErrorModal} onHide={handleClosePError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Password Incorrect</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Both Password and Confirm Password shoul be same...</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClosePError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Modal show={showSuccessModal} onHide={handleCloseError}>
         <Modal.Header closeButton>
           <Modal.Title>Registeration Successful</Modal.Title>

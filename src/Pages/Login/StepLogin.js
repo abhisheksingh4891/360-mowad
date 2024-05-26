@@ -14,7 +14,7 @@ const StepLogin = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const { setStepLogin } = useContext(AppContext);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const [showFetchingModal, setShowFetchingModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -39,7 +39,7 @@ const StepLogin = () => {
     handleShowFetching();
     try {
       const response = await axios.post(`${baseURL}/api/step/user/login`, { email, password });
-      localStorage.setItem('StepToken', response.data.accessToken);
+      localStorage.setItem('StepToken', response.data.token);
       setStepLogin(true);
       handleCloseFetching();
       handleShowSuccess();

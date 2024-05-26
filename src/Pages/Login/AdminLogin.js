@@ -38,7 +38,7 @@ const AdminLogin = () => {
     handleShowFetching();
     try {
       const response = await axios.post(`${baseURL}/api/admin/user/login`, { email, password });
-      localStorage.setItem('AdminToken', response.data.accessToken);
+      localStorage.setItem('AdminToken', response.data.token);
       setAdminLogin(true);
       handleCloseFetching();
       handleShowSuccess();
@@ -86,7 +86,7 @@ const AdminLogin = () => {
         <Modal.Header closeButton>
           <Modal.Title>Fetching User Data</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Please wait while we fetch your profile data...</Modal.Body>
+        <Modal.Body>Please wait while we fetch your profile...</Modal.Body>
       </Modal>
 
      

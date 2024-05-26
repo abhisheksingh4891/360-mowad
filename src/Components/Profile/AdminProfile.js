@@ -8,26 +8,36 @@ const AdminProfile = () => {
 
   const [profile, setProfile] = useState('');
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem('AdminToken');
-      try {
-        const response = await axios.get(`${baseURL}/profile`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setProfile(response.data);
-      } catch (error) {
-        console.error('Error fetching profile', error);
-      }
-    };
+  const fetchProfile = async () => {
+    const token = localStorage.getItem('AdminToken');
+    if (!token){
+        console.log('No token found');
+        return;
+    }
+    try {
+      const response = await axios.get(`${baseURL}/api/admin/user/profile`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setProfile(response.data);
+    } catch (error) {
+      console.error('Error fetching profile', error);
+    }
+  };
 
+  useEffect(() => {
     fetchProfile();
   }, []);
 
-  // if (!profile) return <div>Loading...</div>;
-
+  if (!profile) return (
+    <>
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+      <h5>Loading Profile...</h5>
+    </>
+  );
       
   return (
     <div>
