@@ -11,7 +11,7 @@ const AdminProfile = () => {
   const fetchProfile = async () => {
     const token = localStorage.getItem('AdminToken');
     if (!token){
-        console.log('No token found');
+        // console.log('No token found');
         return;
     }
     try {

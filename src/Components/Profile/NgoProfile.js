@@ -11,7 +11,7 @@ const NgoProfile = () => {
   const fetchProfile = async () => {
     const token = localStorage.getItem('NgoToken');
     if (!token){
-        console.log('No token found');
+        // console.log('No token found');
         return;
     }
     try {

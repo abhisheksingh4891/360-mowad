@@ -11,7 +11,7 @@ const StepProfile = () => {
   const fetchProfile = async () => {
     const token = localStorage.getItem('StepToken');
     if (!token){
-        console.log('No token found');
+        // console.log('No token found');
         return;
     }
     try {
