@@ -35,7 +35,7 @@ const AdminProfile = () => {
       <div className="spinner-border" role="status">
         <span className="sr-only">Loading...</span>
       </div>
-      <h5>Loading Profile...</h5>
+      <h5 className='text-white'>Loading Profile...</h5>
     </>
   );
       

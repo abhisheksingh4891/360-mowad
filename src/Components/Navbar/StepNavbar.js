@@ -38,7 +38,7 @@ const StepNavbar = () => {
             <Link className="nav-link" to="./">NGOs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="./">REGISTERATION</Link>
+            <Link className="nav-link" to="/apply">REGISTERATION</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="./">STATUS</Link>

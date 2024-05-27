@@ -35,7 +35,7 @@ const NgoNavbar = () => {
             <Link className="nav-link" to="./">FUNDING NORMS</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="./">REGISTER</Link>
+            <Link className="nav-link" to="/apply">REGISTER</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="./">STATUS</Link>

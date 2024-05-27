@@ -1,26 +1,65 @@
 import {React, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../Components/Logo';
 import bg1 from '../Assets/bg5.jpg'
+import axios from 'axios';
+import { Modal, Button } from 'react-bootstrap';
+
+const baseURL = "https://three60-mowad-backend.onrender.com";
+// const baseURL = "http://localhost:1000";
+
 
 const Apply = () => {
+  
+  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [state, setState] = useState('');
-  const [icode, setIcode] = useState('');
   const [aadhar, setAadhar] = useState('');
-  const [iname, setIname] = useState('');
+  const [instituteName, setInstituteName] = useState('');
+  const [pincode, setPincode] = useState('');
   const [year, setYear] = useState('');
   const [study, setStudy] = useState('');
 
+  
+  const [showFetchingModal, setShowFetchingModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
-  // const navigate = useNavigate();
+  const handleCloseFetching = () => setShowFetchingModal(false);
+  const handleShowFetching = () => setShowFetchingModal(true);
+
+  const handleShowSuccess = () => {
+      setShowSuccessModal(true);
+      setTimeout(() => {
+        setShowSuccessModal(false);
+          navigate('/');
+      }, 1000);
+
+  }
+
+  const handleCloseError = () => setShowErrorModal(false);
+  const handleShowError = () => setShowErrorModal(true);
+
 
   const Submit = (e)=> {
     e.preventDefault();
+    handleShowFetching();
+    axios.post(`${baseURL}/api/apply`, {
+      name, gender, phone, email, state, aadhar, instituteName, year, study, pincode
+    })
+    .then(()=> {
+      handleCloseFetching();
+      handleShowSuccess();
+    })
+    .catch(err => {
+      console.log(err);
+      handleCloseFetching();
+      handleShowError();
+    })
     // navigate("/Apply");
   }
   
@@ -47,16 +86,14 @@ const Apply = () => {
                           </div>
                         </div>
 
-                        <div className="col">
+                        <div className='col'>
                           <div className="form-outline mb-4">
-                            <label className="form-label text-black fw-bold" htmlFor="form2Example18">Gender</label>
-                            <select className="form-select" onChange={(e) => setGender(e.target.value)} value={gender}>
-                              <option value="">Select Gender</option>
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                            </select>
+                            <label className="form-label text-black fw-bold" htmlFor="form2Example20">Email address</label>
+                            <input required type="email" id="form2Example20" className="form-control" onChange={(e)=>{setEmail(e.target.value)}} name="email" value={email}/>
                           </div>
                         </div>
+
+                        
                       </div>
 
                       <div className="row g-3">
@@ -76,19 +113,31 @@ const Apply = () => {
                       </div>
 
                       <div className="row g-3">
-                        <div className='col'>
-                          <div className="form-outline mb-4">
-                            <label className="form-label text-black fw-bold" htmlFor="form2Example20">Email address</label>
-                            <input required type="email" id="form2Example20" className="form-control" onChange={(e)=>{setEmail(e.target.value)}} name="email" value={email}/>
-                          </div>
+                        <div className="col">
+                            <div className="form-outline mb-4">
+                              <label className="form-label text-black fw-bold" htmlFor="form2Example18">Gender</label>
+                              <select className="form-select" onChange={(e) => setGender(e.target.value)} value={gender}>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                              </select>
+                            </div>
                         </div>
 
                         <div className='col'>                          
+                          <div className="form-outline mb-4">
+                            <label className="form-label text-black fw-bold" htmlFor="form2Example27">Pin Code</label>
+                            <input required type="text" id="form2Example27" className="form-control" onChange={(e)=>{setPincode(e.target.value)}} name="pincode" value={pincode}/>
+                          </div>
+                        </div>
+
+                      <div className='col'>                          
                           <div className="form-outline mb-4">
                             <label className="form-label text-black fw-bold" htmlFor="form2Example23">State Domicile</label>
                             <input required type="text" id="form2Example23" className="form-control" onChange={(e)=>{setState(e.target.value)}} name="state" value={state}/>
                           </div>
                         </div>
+                        
                       </div>
 
                     </div>
@@ -100,16 +149,11 @@ const Apply = () => {
                         <div className='col'>
                           <div className="form-outline mb-4">
                             <label className="form-label text-black fw-bold" htmlFor="form2Example30">Institute Name</label>
-                            <input required type="text" id="form2Example30" className="form-control" onChange={(e)=>{setIname(e.target.value)}} name="iname" value={iname}/>
+                            <input required type="text" id="form2Example30" className="form-control" onChange={(e)=>{setInstituteName(e.target.value)}} name="instituteName" value={instituteName}/>
                           </div>
                         </div>
 
-                        <div className='col'>    
-                          <div className="form-outline mb-4">
-                            <label className="form-label text-black fw-bold" htmlFor="form2Example24">Institute Code</label>
-                            <input required type="number" id="form2Example24" className="form-control" onChange={(e)=>{setIcode(e.target.value)}} name="code" value={icode}/>
-                          </div>
-                        </div>
+                        
                       </div>
                       <div className="form-outline mb-4">
                         <label className="form-label text-black fw-bold" htmlFor="form2Example32">Graduation Year</label>
@@ -119,8 +163,8 @@ const Apply = () => {
                       <div className="form-outline mb-4">
                         <label className="form-label text-black fw-bold" htmlFor="form2Example33">Mode of study</label>
                         <select className="form-select" onChange={(e) => setStudy(e.target.value)} value={study}>
-                          <option value="male">Online</option>
-                          <option value="female">Offline</option>
+                          <option value="Offline">Offline</option>
+                          <option value="Online">Online</option>
                         </select>
                       </div>
 
@@ -149,6 +193,38 @@ const Apply = () => {
         </div>
       </div>
     </div>
+    <Modal show={showFetchingModal} onHide={handleCloseFetching}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sending User Data</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please wait while we send your Data...</Modal.Body>
+      </Modal>
+
+      
+      <Modal show={showSuccessModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Registertion Successfull</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have successfully registered for programme!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      
+      <Modal show={showErrorModal} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>Registeration Failed</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>User already exists!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseError}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
   </div>
 
   )

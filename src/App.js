@@ -12,6 +12,7 @@ import AppContextProvider from './Context/AppContext';
 import StepRegister from './Pages/Register/StepRegister';
 import NgoRegister from './Pages/Register/NgoRegister';
 import Policy from './Pages/Policy';
+import Apply from './Pages/Apply';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/stepregister' element={<StepRegister />} />
         <Route path='/ngoregister' element={<NgoRegister />} />
         <Route path='/policy' element={<Policy />} />
+        <Route path='/apply' element={<Apply />} />
       </Routes>
     </AppContextProvider>
     </div>
